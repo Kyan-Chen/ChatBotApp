@@ -1,70 +1,2566 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://tw.transcend-info.com/ -->
 <html>
 
 <head>
-    
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-	crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/flick/jquery-ui.css">
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
-	integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
-	crossorigin="anonymous"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        創見資訊
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="Transcend">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description"
+        content="創見資訊以自有品牌「Transcend」行銷全球，產品包含記憶體、記憶卡、隨身碟、外接式硬碟、固態硬碟、行車記錄器、蘋果升級方案及工業用產品等，為全球消費性電子與工業用產品領導廠商。">
+    <link rel="shortcut icon" href="https://tw.transcend-info.com/images/ts_favicon.ico">
+    <link rel="apple-touch-icon" href="https://tw.transcend-info.com/images/ts_logo_fb.png">
+    <!-- CSS -->
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    
-    <title>Chat Bot Test</title>
+    <link rel="stylesheet" href="./src/main.min.css" type="text/css">
+    <link rel="stylesheet" href="./src/mainStructure.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- jQuery -->
+    <script src="./src/jquery.min.js"></script>
+    <script src="./src/mainFunction.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/start/jquery-ui.min.css" integrity="sha512-Zp3fEbj711NjejZCGEBTw9hHzXmqINMeFJU4N0dPvroJAOkvR4+I27B/oarJ9EFkntX1XMeVYZ+VmSA6NcN7fA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style type="text/css">
+        .imgLiquid img {
+            visibility: hidden
+        }
+    </style>
 </head>
 
-<body>
-    <h2>Hello Chat Bot</h2>
+<body id="Body" class="lang_tw desktop">
 
-    <div>
-        <span id="btnChatbot" class="btn btn-default">
-            <i class="fa fa-robot"></i>&nbsp;&nbsp;&nbsp;Q&A
-        </span>
-    </div>
+    <form method="post" action="https://tw.transcend-info.com/" id="form1">
+        <span id="error"></span>
+        <div id="mainNAV">
+            <!-- 選單結構 -->
+            <div class="RWD-Structure">
+                <!-- LOGO -->
+                <div class="TS_LOGO">
+                    <a href="https://tw.transcend-info.com/">
+                        <img src="./src/logo.svg" alt="Transcend Logo" class="img-responsive"></a>
+                </div>
 
-    <div id="dialogChatbot" title="" style="display:none;height:100%;overflow:hidden">
-        <form id="formChatbot" method="dialog" style="height:100%;overflow:hidden">
-            <iframe
-                src="https://web.powerva.microsoft.com/environments/Default-27bfa29c-c614-477b-a83a-d80c120c492a/bots/Default_transcend/webchat?__version__=2"
-                frameborder="0" style="width: 100%; height: 100%;"></iframe>
-        </form>
-    </div>
-	
-	<script>
-    $(function () {
-        $("#dialogChatbot").dialog({
-            modal: true,
-            autoOpen: false,
-            width: 600,
-            height: 640,
-            show: {
-                effect: "fold",
-                duration: 700
-            },
-            hide: {
-                effect: "fade",
-                duration: 500
-            },
-            buttons: [{
-                text: "關閉", click: function () {
-                    $("#dialogChatbot").dialog("close");
-                    /*$("#dialogChatbot").dialog("destroy");*/
+                <div class="NAV-Structure">
+                    <!-- 第一層 -->
+                    <ul id="FirstLayer">
+
+                        <li class="NormalList">
+                            <a href="https://tw.transcend-info.com/Consumer" id="Menu_1">消費性產品</a>
+
+                            <!-- 次選單 -->
+                            <!-- MainContent -->
+                            <div class="MainContent">
+                                <!-- Structure -->
+                                <div class="RWD-Structure">
+                                    <!-- 第二層 -->
+                                    <ol class="SecLayer">
+                                        <li class="mobIndexTag"><a href="https://tw.transcend-info.com/Consumer"
+                                                id="Menu_1">消費性產品</a></li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/product/internal-ssd"
+                                                id="Menu_6">內接式固態硬碟</a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_0" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/internal-ssd#PCIeM2%E5%9B%BA%E6%85%8B%E7%A1%AC%E7%A2%9F">
+                                                                <div class="IMG"><img src="./src/category_pcie.png">
+                                                                </div>PCIe M.2固態硬碟
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/internal-ssd#SATAIIIM2%E5%9B%BA%E6%85%8B%E7%A1%AC%E7%A2%9F">
+                                                                <div class="IMG"><img src="./src/category_m2.png"></div>
+                                                                SATA III M.2固態硬碟
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/internal-ssd#25%E5%90%8B%E5%9B%BA%E6%85%8B%E7%A1%AC%E7%A2%9F">
+                                                                <div class="IMG"><img src="./src/category_SSDs.png">
+                                                                </div>2.5吋固態硬碟
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/internal-ssd#Mac%E5%B0%88%E7%94%A8SSD%E5%8D%87%E7%B4%9A%E5%A5%97%E4%BB%B6%E7%B5%84">
+                                                                <div class="IMG"><img src="./src/Category_JDM.png">
+                                                                </div>Mac專用SSD升級套件組
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/internal-ssd#mSATA%E5%BE%AE%E5%9E%8B%E5%9B%BA%E6%85%8B%E7%A1%AC%E7%A2%9F">
+                                                                <div class="IMG"><img src="./src/category_mSATA.png">
+                                                                </div>mSATA微型固態硬碟
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/internal-ssd#%E9%85%8D%E4%BB%B6">
+                                                                <div class="IMG"><img src="./src/list_CM-min.png"></div>
+                                                                配件
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+                                                        <img src="./src/List_MTE250H.png">
+                                                    </div>
+
+                                                    <h3>
+                                                        PCIe SSD 250H</h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+                                                        創見PCIe SSD MTE250H採用PCI Express® Gen4 x4介面，符合最新NVMe™接口標準，並搭載3D
+                                                        NAND快閃記憶體、8通道控制器及DRAM快取記憶體。MTE250H附加鋁鰭式散熱片，散熱效果有效升級，可支援長時間的高速運轉，適合電競狂熱者使用，載入大型遊戲檔案也不怕效能緩慢造成系統延遲，打造強烈震撼的完美體驗。
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/product/internal-ssd/mte250h">閱讀更多</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/product/portable-ssd"
+                                                id="Menu_187">行動固態硬碟</a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_1" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/portable-ssd#%E8%A1%8C%E5%8B%95%E5%9B%BA%E6%85%8B%E7%A1%AC%E7%A2%9F">
+                                                                <div class="IMG"><img
+                                                                        src="./src/PortableSSD_category.png"></div>
+                                                                行動固態硬碟
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+                                                        <img src="./src/List_ESD310-202309.png">
+                                                    </div>
+
+                                                    <h3>
+                                                        ESD310行動固態硬碟</h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+                                                        ESD310超迷你行動固態硬碟以10Gbps超高速傳輸嶄露頭角，可儲存高達2TB的多媒體檔案與遊戲資料，海量文件可在轉瞬間傳輸完畢，縮短等候時間。ESD310為雙接頭設計，可支援USB
+                                                        Type-A桌機、筆電與Type-C行動裝置，高耐用與高相容特性充分滿足你的日常與工作所需。
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/product/portable-ssd/esd310">閱讀更多</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/product/external-hard-drive"
+                                                id="Menu_4">外接式硬碟</a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_2" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/external-hard-drive#%E5%8F%AF%E6%94%9C%E5%BC%8F%E5%A4%96%E6%8E%A5%E7%A1%AC%E7%A2%9F">
+                                                                <div class="IMG"><img src="./src/Category_HDD.png">
+                                                                </div>可攜式外接硬碟
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/external-hard-drive#%E6%A1%8C%E4%B8%8A%E5%9E%8B%E5%A4%96%E6%8E%A5%E5%BC%8F%E7%A1%AC%E7%A2%9F">
+                                                                <div class="IMG"><img src="./src/category_SJ35T3.png">
+                                                                </div>桌上型外接式硬碟
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/external-hard-drive#%E9%85%8D%E4%BB%B6">
+                                                                <div class="IMG"><img
+                                                                        src="./src/category_SJ25CK3-min.png"></div>配件
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+                                                        <img src="./src/list_25M3C.png">
+                                                    </div>
+
+                                                    <h3>
+                                                        StoreJet 25M3C</h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+                                                        <p>
+                                                            創見StoreJet 25M3C可攜式外接硬碟搭載USB 3.1 Gen 1傳輸介面與USB
+                                                            Type-C接孔，展現無可比擬的傳輸速度，並內附一條USB Type-C傳輸線、以及一條USB
+                                                            Type-C轉Type-A的傳輸線，於新舊裝置皆可完美相容。結合頂級抗震性能，讓你在享受高速檔案傳輸的同時，也能體驗軍規級防護，感受尖端科技帶來的傳輸新境界！
+                                                        </p>
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/product/external-hard-drive/storejet-25m3c">閱讀更多</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/product/personal-cloud"
+                                                id="Menu_116">個人雲端儲存裝置</a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_3" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/personal-cloud#%E5%80%8B%E4%BA%BA%E9%9B%B2%E7%AB%AF%E5%84%B2%E5%AD%98%E8%A3%9D%E7%BD%AE">
+                                                                <div class="IMG"><img src="./src/category_sjc.png">
+                                                                </div>個人雲端儲存裝置
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: none">
+
+                                                    <div class="IMG">
+
+                                                    </div>
+
+                                                    <h3>
+                                                    </h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/">閱讀更多</a></div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/product/dashcam"
+                                                id="Menu_9">行車記錄器</a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_4" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/dashcam#%E8%A1%8C%E8%BB%8A%E8%A8%98%E9%8C%84%E5%99%A8">
+                                                                <div class="IMG"><img src="./src/category_DP.png"></div>
+                                                                行車記錄器
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/dashcam#%E9%9B%99%E9%8F%A1%E9%A0%AD%E8%A1%8C%E8%BB%8A%E8%A8%98%E9%8C%84%E5%99%A8">
+                                                                <div class="IMG"><img src="./src/category_DP620.png">
+                                                                </div>雙鏡頭行車記錄器
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/dashcam#%E6%A9%9F%E8%BB%8A%E8%A1%8C%E8%BB%8A%E8%A8%98%E9%8C%84%E5%99%A8">
+                                                                <div class="IMG"><img src="./src/category_DP(1).png">
+                                                                </div>機車行車記錄器
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/dashcam#%E9%85%8D%E4%BB%B6">
+                                                                <div class="IMG"><img src="./src/dashcamAcc.png"></div>
+                                                                配件
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+                                                        <img src="./src/List_DP620.png">
+                                                    </div>
+
+                                                    <h3>
+                                                        DrivePro 620</h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+                                                        <p>創見DrivePro 620
+                                                            雙鏡頭行車記錄器組內含一組前鏡及後鏡，搭載高感光元件，在低光源下仍能精準地呈現豐富色彩。140°廣角視野支援每秒60幀的1440P
+                                                            2K
+                                                            QHD高畫質動態錄影，提供流暢、清晰細膩的影像品質。搭配抬頭顯示、緊急錄影等多項先進功能，讓前後鏡頭互相配合同時錄影，讓你的行車安全無死角，全方位保障旅途平安。
+                                                        </p>
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/product/dashcam/drivepro-620">閱讀更多</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/product/body-camera"
+                                                id="Menu_54">穿戴式攝影機</a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_5" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/body-camera#%E7%A9%BF%E6%88%B4%E5%BC%8F%E6%94%9D%E5%BD%B1%E6%A9%9F">
+                                                                <div class="IMG"><img src="./src/cate_DPB.png"></div>
+                                                                穿戴式攝影機
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/body-camera#%E9%85%8D%E4%BB%B6">
+                                                                <div class="IMG"><img src="./src/DPB6P_05.png"></div>配件
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+                                                        <img src="./src/List_DPB70.png">
+                                                    </div>
+
+                                                    <h3>
+                                                        DrivePro Body 70</h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+                                                        創見DrivePro Body
+                                                        70為一款分離式鏡頭穿戴式攝影機，專為警消執法人員與保全安防專業人士所設計，高度彈性的配戴方式可滿足多種使用情境。DrivePro
+                                                        Body 70具備2K QHD 1440P高畫質蒐證能力、持久的續航力與堅固耐用的外觀設計，完整記錄現場狀況。DrivePro
+                                                        Body 70亦搭載無線資料傳輸與預覽、衛星定位與其他等實用功能，支援前線團隊各項出勤任務。
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/product/body-camera/drivepro-body-70">閱讀更多</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/product/memory-card"
+                                                id="Menu_2">記憶卡</a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_6" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/memory-card#SD%E8%A8%98%E6%86%B6%E5%8D%A1">
+                                                                <div class="IMG"><img src="./src/category_SD_Cards.png">
+                                                                </div>SD記憶卡
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/memory-card#microSD%E8%A8%98%E6%86%B6%E5%8D%A1">
+                                                                <div class="IMG"><img
+                                                                        src="./src/category_microSD_Cards_2023.png">
+                                                                </div>microSD記憶卡
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/memory-card#CFexpress%E8%A8%98%E6%86%B6%E5%8D%A1">
+                                                                <div class="IMG"><img src="./src/category_CFE.png">
+                                                                </div>CFexpress 記憶卡
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/memory-card#CompactFlash%E8%A8%98%E6%86%B6%E5%8D%A1">
+                                                                <div class="IMG"><img
+                                                                        src="./src/category_CompactFlashCards.png">
+                                                                </div>CompactFlash記憶卡
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/memory-card#CFast20%E8%A8%98%E6%86%B6%E5%8D%A1">
+                                                                <div class="IMG"><img
+                                                                        src="./src/category_CFast2.0_Card.png"></div>
+                                                                CFast 2.0記憶卡
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/memory-card#Mac%E5%B0%88%E7%94%A8%E6%93%B4%E5%85%85%E5%8D%A1">
+                                                                <div class="IMG"><img src="./src/list_JDL330.png"></div>
+                                                                Mac專用擴充卡
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+                                                        <img src="./src/list_USD340S_512G.png">
+                                                    </div>
+
+                                                    <h3>
+                                                        USD340S</h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+                                                        <p>瞄準手機遊戲與掌上型遊戲機，創見極速效能microSDXC
+                                                            340S記憶卡符合最新一代A2速度等級，主打優異的隨機讀寫效能，適合處理小檔案的隨機讀寫，並可加速app開啟的時間。
+                                                        </p>
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/product/memory-card/usd340s">閱讀更多</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/product/usb" id="Menu_3">隨身碟</a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_7" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/usb#Android%E8%A1%8C%E5%8B%95%E5%84%B2%E5%AD%98%E7%A2%9F">
+                                                                <div class="IMG"><img
+                                                                        src="./src/category_usb_android.png"></div>
+                                                                Android行動儲存碟
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/usb#USB32Gen131Gen1USB5Gbps%E9%9A%A8%E8%BA%AB%E7%A2%9F">
+                                                                <div class="IMG"><img src="./src/category_JF_2021.png">
+                                                                </div>USB 3.2 Gen 1/3.1 Gen 1 (USB 5Gbps) 隨身碟
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/usb#USB20%E9%9A%A8%E8%BA%AB%E7%A2%9F">
+                                                                <div class="IMG"><img src="./src/category_USB2.0.png">
+                                                                </div>USB 2.0 隨身碟
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+                                                        <img src="./src/List_JF930C.png">
+                                                    </div>
+
+                                                    <h3>
+                                                        JetFlash 930C</h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+                                                        <p>創見JetFlash 930C隨身碟以其雙USB接頭脫穎而出，可支援USB
+                                                            Type-A和Type-C智慧型手機、電腦和電玩主機。搭載USB 3.2 Gen 1 傳輸介面和 3D
+                                                            快閃記憶體可釋放高達420MB/s的傳輸速度，適合儲存多款遊戲和多媒體檔案。JetFlash
+                                                            930C提供高達512GB的高容量，外殼以鋁合金噴砂所打造，閃耀著優雅內斂的金色光芒，讓你暢玩遊戲，存好存滿！</p>
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/product/usb-flash-drive/jetflash-930c">閱讀更多</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/product/dram-module"
+                                                id="Menu_7">記憶體模組</a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_8" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a href="https://tw.transcend-info.com/product/module/ddr5">
+                                                                <div class="IMG"><img src="./src/DRAM_C_DDR5.png"></div>
+                                                                DDR5
+                                                            </a></li>
+
+                                                        <li><a href="https://tw.transcend-info.com/product/module/ddr4">
+                                                                <div class="IMG"><img src="./src/DRAM_C_DDR4.png"></div>
+                                                                DDR4
+                                                            </a></li>
+
+                                                        <li><a href="https://tw.transcend-info.com/product/module/ddr3">
+                                                                <div class="IMG"><img src="./src/DRAM_C_DDR3.png"></div>
+                                                                DDR3
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+
+                                                    </div>
+
+                                                    <h3>
+                                                    </h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/">閱讀更多</a></div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/product/card-reader-accessory"
+                                                id="Menu_8">讀卡機、DVD燒錄機與配件</a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_9" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/card-reader-accessory#%E8%AE%80%E5%8D%A1%E6%A9%9F">
+                                                                <div class="IMG"><img src="./src/RC-RDC8-usb3.1.png">
+                                                                </div>讀卡機
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/card-reader-accessory#%E9%9B%86%E7%B7%9A%E5%99%A8">
+                                                                <div class="IMG"><img src="./src/RC-HUB2-Accessory.png">
+                                                                </div>集線器
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/product/card-reader-accessory#DVD%E7%87%92%E9%8C%84%E6%A9%9F%E8%88%87%E8%BD%89%E6%8E%A5%E5%8D%A1">
+                                                                <div class="IMG"><img
+                                                                        src="./src/category_Accessories.png"></div>
+                                                                DVD燒錄機與轉接卡
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+                                                        <img src="./src/list_TS-HUB5C.png">
+                                                    </div>
+
+                                                    <h3>
+                                                        HUB5C</h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+                                                        創見六合一USB Type-C Hub搭載一體成型、正反可插USB Type-C傳輸線，採用極速USB 3.1 Gen
+                                                        2，適合新一代Type-C手機、平板、筆電、iPad
+                                                        Pro、MacBook等，可擴充同時連接至Type-C孔的裝置數量。你可以連接如滑鼠、鍵盤、隨身碟、外接式硬碟、外接式固態硬碟等配件至個人電腦，也可以拍完照後直接將記憶卡從相機中取出，透過HUB5C在電腦或行動裝置上無痛存取，更可以Type-C充電孔、數據孔雙管齊下，一邊迅速為筆電充電，一邊使用USB
+                                                        3.1 Gen 2埠孔高速讀寫資料，增加工作效率！
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/product/card-reader-accessory/hub5c">閱讀更多</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/apple" id="Menu_13">蘋果升級方案</a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_10"
+                                                class="ThirdLayer NoInformation AppleSolution">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Article/MacSolutions">
+                                                                <div class="IMG"><img src="./src/apple_mac.jpg"></div>
+                                                                Mac升級方案
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+
+                                                    </div>
+
+                                                    <h3>
+                                                    </h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/">閱讀更多</a></div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category active">
+                                            <a href="https://tw.transcend-info.com/products/oem.aspx" id="Menu_52">客製化服務
+                                                <div class="Arrow"></div>
+                                            </a>
+
+                                            <div id="Menu_Menu_Sub_0_third_layer_11"
+                                                class="ThirdLayer NoInformation Customized">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a href="https://tw.transcend-info.com/products/oem.aspx">
+                                                                <div class="IMG"><img
+                                                                        src="./src/customized_custom_intro.jpg"></div>
+                                                                服務說明
+                                                            </a></li>
+
+                                                        <li><a href="https://tw.transcend-info.com/support/oem_tool">
+                                                                <div class="IMG"><img
+                                                                        src="./src/customized_custom_preview.jpg"></div>
+                                                                產品預覽
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+
+                                                    </div>
+
+                                                    <h3>
+                                                    </h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/">閱讀更多</a></div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                    </ol>
+                                </div>
+                            </div>
+
+                        </li>
+
+                        <li class="NormalList">
+                            <a href="https://tw.transcend-info.com/Embedded" id="Menu_55">嵌入式解決方案</a>
+
+                            <!-- 次選單 -->
+                            <!-- MainContent -->
+                            <div class="MainContent">
+                                <!-- Structure -->
+                                <div class="RWD-Structure">
+                                    <!-- 第二層 -->
+                                    <ol class="SecLayer">
+                                        <li class="mobIndexTag"><a href="https://tw.transcend-info.com/Embedded"
+                                                id="Menu_55">嵌入式解決方案</a></li>
+
+                                        <li class="Category active">
+                                            <a href="https://tw.transcend-info.com/Embedded/Product/ssd"
+                                                id="Menu_181">工業用SSD解決方案</a>
+
+                                            <div id="Menu_Menu_Sub_1_third_layer_0" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/ssd#U2SSD">
+                                                                <div class="IMG"><img src="./src/list_UTE210T.png">
+                                                                </div>U.2 SSD
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/ssd#PCIeM2SSDs">
+                                                                <div class="IMG"><img src="./src/category_pcie(1).png">
+                                                                </div>PCIe M.2 SSDs
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/ssd#SATAIIIM2SSDs">
+                                                                <div class="IMG"><img src="./src/category_m2(1).png">
+                                                                </div>SATA III M.2 SSDs
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/ssd#25SATAPATASSDs">
+                                                                <div class="IMG"><img src="./src/category_25ssd.png">
+                                                                </div>2.5" SATA &amp; PATA SSDs
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/ssd#mSATASSDs">
+                                                                <div class="IMG"><img src="./src/category_mSATA(1).png">
+                                                                </div>mSATA SSDs
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/ssd#Half-SlimSSDs">
+                                                                <div class="IMG"><img src="./src/category_halfslim.png">
+                                                                </div>Half-Slim SSDs
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+                                                        <img src="./src/List_MTE720T_4T.png">
+                                                    </div>
+
+                                                    <h3>
+                                                        MTE720T</h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+                                                        <p>創見M.2 2280固態硬碟MTE720T以112層3D NAND快閃記憶體打造，搭載高速PCIe Gen 4
+                                                            x4介面，符合最新NVMe
+                                                            1.4規範，內建8通道控制器，帶來前所未有的傳輸效能。創見MTE720T固態硬碟內建DRAM快取記憶體，提供絕佳的隨機存取速度，同時搭載30µ"金手指厚金鍍層PCB、邊緣補強(Corner
+                                                            Bond)技術以及抗硫化電阻，強化關鍵元件保護，抵禦嚴苛的工業應用環境。MTE720T經過嚴格的廠內測試，具備類寬溫特性（-20°C~75°C），在急遽溫差變化下仍能穩定運作，展現高度可靠性。
+                                                        </p>
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/embedded/product/embedded-ssd-solutions/mte720t">閱讀更多</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/Embedded/Product/flash"
+                                                id="Menu_182">工業用Flash解決方案</a>
+
+                                            <div id="Menu_Menu_Sub_1_third_layer_1" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/flash#%E9%9A%A8%E8%BA%AB%E7%A2%9F">
+                                                                <div class="IMG"><img src="./src/Catalogpic-USB.png">
+                                                                </div>隨身碟
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/flash#USB%E5%BF%AB%E9%96%83%E8%A8%98%E6%86%B6%E9%AB%94%E6%A8%A1%E7%B5%84">
+                                                                <div class="IMG"><img src="./src/Catalogpic-UFM.png">
+                                                                </div>USB 快閃記憶體模組
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/flash#PATA%E5%BF%AB%E9%96%83%E8%A8%98%E6%86%B6%E9%AB%94%E6%A8%A1%E7%B5%84">
+                                                                <div class="IMG"><img
+                                                                        src="./src/Catalogpic-PATA-0221.png"></div>PATA
+                                                                快閃記憶體模組
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/flash#eMMC">
+                                                                <div class="IMG"><img src="./src/Catalogpic-eMMC.png">
+                                                                </div>eMMC
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+                                                        <img src="./src/list_JF280T.png">
+                                                    </div>
+
+                                                    <h3>
+                                                        JetFlash 280T</h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+                                                        <p>
+                                                            創見工業級隨身碟JetFlash 280T採用96層3D快閃記憶體與高速USB 3.1 Gen
+                                                            1傳輸介面，輕巧的尺寸與高相容性適合行動儲存相關應用，優異的效能與耐用度滿足醫療、軍事、工業自動化等應用的嚴苛需求。JetFlash
+                                                            280T可與創見UFD Security
+                                                            Toolbox加密軟體搭配使用，執行密碼加密設定，亦可透過簡訊(SMS)將一次性密碼(OTP)傳至特定手機門號，進行隨身碟解鎖，資料安全更穩固。
+                                                        </p>
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/embedded/product/embedded-flash-solutions/jetflash-280t">閱讀更多</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/Embedded/Product/memory-cards"
+                                                id="Menu_183">工業用記憶卡</a>
+
+                                            <div id="Menu_Menu_Sub_1_third_layer_2" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/memory-cards#SD%E8%A8%98%E6%86%B6%E5%8D%A1">
+                                                                <div class="IMG"><img src="./src/embedded_SD_2021.png">
+                                                                </div>SD記憶卡
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/memory-cards#microSD%E8%A8%98%E6%86%B6%E5%8D%A1">
+                                                                <div class="IMG"><img
+                                                                        src="./src/embedded_microSD_2021.png"></div>
+                                                                microSD記憶卡
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/memory-cards#CompactFlash%E8%A8%98%E6%86%B6%E5%8D%A1">
+                                                                <div class="IMG"><img src="./src/embedded_CF_2021.png">
+                                                                </div>CompactFlash記憶卡
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/memory-cards#CFast%E8%A8%98%E6%86%B6%E5%8D%A1">
+                                                                <div class="IMG"><img src="./src/embedded_CFX_2022.png">
+                                                                </div>CFast 記憶卡
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Product/memory-cards#MMC">
+                                                                <div class="IMG"><img src="./src/embedded_MMC.png">
+                                                                </div>MMC
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+                                                        <img src="./src/list_USD460T_512.png">
+                                                    </div>
+
+                                                    <h3>
+                                                        USD460T &amp; USD460I</h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+                                                        <p>
+                                                            創見microSDXC
+                                                            460T記憶卡搭載高品質3D堆疊快閃記憶體，打造優異的連續寫入速度，並具備3K次抹寫週期，提供相當於MLC顆粒的耐用度，展現更高穩定性和使用壽命。適用於寫入密集型的醫療器材、監視系統與POS終端機。
+                                                        </p>
+                                                        <br>
+                                                        <p>創見亦推出具備寬溫特性的microSDXC
+                                                            460I記憶卡，可於-40℃到85℃下穩定運作，以確保工業機台於任務密集型應用中實現卓越的運作效能。</p>
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/embedded/product/embedded-memory-cards/usd460t-usd460i">閱讀更多</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/Embedded/Product/modules"
+                                                id="Menu_184">工業用記憶體模組</a>
+
+                                            <div id="Menu_Menu_Sub_1_third_layer_3" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/embedded/product/module/ddr5">
+                                                                <div class="IMG"><img src="./src/DRAM_E_DDR5.png"></div>
+                                                                DDR5
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/embedded/product/module/ddr4">
+                                                                <div class="IMG"><img src="./src/DRAM_E_DDR4.png"></div>
+                                                                DDR4
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/embedded/product/module/ddr3">
+                                                                <div class="IMG"><img src="./src/DRAM_E_DDR3.png"></div>
+                                                                DDR3
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/embedded/product/module/ddr2">
+                                                                <div class="IMG"><img src="./src/DRAM_E_Legacy.png">
+                                                                </div>DDR2
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+
+                                                    </div>
+
+                                                    <h3>
+                                                    </h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/">閱讀更多</a></div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/Embedded/Technologies"
+                                                id="Menu_185">產品技術</a>
+
+                                            <div id="Menu_Menu_Sub_1_third_layer_4"
+                                                class="ThirdLayer NoInformation Technologies">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Technologies?CatNo=33">
+                                                                <div class="IMG"><img src="./src/tech_Durability.png">
+                                                                </div>耐久性
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Technologies?CatNo=35">
+                                                                <div class="IMG"><img src="./src/tech_Reliability.png">
+                                                                </div>可靠性
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Technologies?CatNo=36">
+                                                                <div class="IMG"><img src="./src/tech_Security.png">
+                                                                </div>安全性
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Technologies?CatNo=37">
+                                                                <div class="IMG"><img src="./src/tech_Stability.png">
+                                                                </div>穩定性
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+
+                                                    </div>
+
+                                                    <h3>
+                                                    </h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/">閱讀更多</a></div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/Embedded/Applications"
+                                                id="Menu_186">應用領域</a>
+
+                                            <div id="Menu_Menu_Sub_1_third_layer_5"
+                                                class="ThirdLayer NoInformation Applications">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Application/transportation">
+                                                                <div class="IMG"><img
+                                                                        src="./src/index_app_transportation.png"></div>
+                                                                運輸
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Application/healthcare">
+                                                                <div class="IMG"><img
+                                                                        src="./src/index_app_healthcare.png"></div>醫療照護
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Application/gaming">
+                                                                <div class="IMG"><img src="./src/index_app_gaming.png">
+                                                                </div>博弈娛樂
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Application/aiot">
+                                                                <div class="IMG"><img src="./src/index_app_aiot.png">
+                                                                </div>智慧物聯網
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Application/networking">
+                                                                <div class="IMG"><img src="./src/index_app_network.png">
+                                                                </div>網路通訊
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Application/embedded">
+                                                                <div class="IMG"><img
+                                                                        src="./src/index_app_embedded.png"></div>嵌入式應用
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Application/industry-4-0">
+                                                                <div class="IMG"><img
+                                                                        src="./src/index_app_automation.png"></div>工業4.0
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Application/military">
+                                                                <div class="IMG"><img
+                                                                        src="./src/index_app_military.png"></div>軍事應用
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+
+                                                    </div>
+
+                                                    <h3>
+                                                    </h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/">閱讀更多</a></div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/Embedded/Software"
+                                                id="Menu_191">軟體解決方案</a>
+
+                                            <div id="Menu_Menu_Sub_1_third_layer_6"
+                                                class="ThirdLayer NoInformation Applications">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Software/Management">
+                                                                <div class="IMG"><img
+                                                                        src="./src/Icon_Soft_Manage-01.png"></div>管理
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Software/Monitor">
+                                                                <div class="IMG"><img
+                                                                        src="./src/Icon_Soft_monitor-01.png"></div>監控
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Software/Security">
+                                                                <div class="IMG"><img
+                                                                        src="./src/Icon_Soft_Security-01.png"></div>安全
+                                                            </a></li>
+
+                                                        <li><a
+                                                                href="https://tw.transcend-info.com/Embedded/Software/Rescue">
+                                                                <div class="IMG"><img
+                                                                        src="./src/Icon_Soft_Rescue-01.png"></div>救援
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+
+                                                    </div>
+
+                                                    <h3>
+                                                    </h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/">閱讀更多</a></div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/embedded/download"
+                                                id="Menu_200">資源下載</a>
+
+                                            <div id="Menu_Menu_Sub_1_third_layer_7"
+                                                class="ThirdLayer NoInformation Applications">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+
+                                                    </div>
+
+                                                    <h3>
+                                                    </h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/">閱讀更多</a></div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                    </ol>
+                                </div>
+                            </div>
+
+                        </li>
+
+                        <li class="OneList">
+                            <a href="https://tw.transcend-info.com/support/service" id="Menu_14">支援服務</a>
+
+                            <!-- 次選單 -->
+                            <!-- MainContent -->
+                            <div class="MainContent">
+                                <!-- Structure -->
+                                <div class="RWD-Structure">
+                                    <!-- 第二層 -->
+                                    <ol class="SecLayer">
+
+                                        <li class="Category active">
+                                            <a href="https://tw.transcend-info.com/support/service" id="Menu_15">
+                                                <div class="IMG"><img src="./src/SupportCenter.png"></div>產品支援
+                                            </a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/support/software" id="Menu_180">
+                                                <div class="IMG"><img src="./src/support_soft.png"></div>軟體下載
+                                            </a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/support/compatibility" id="Menu_18">
+                                                <div class="IMG"><img src="./src/support_compatibility.png"></div>相容性查詢
+                                            </a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/warranty" id="Menu_195">
+                                                <div class="IMG"><img src="./src/support_policy.png"></div>保固政策
+                                            </a>
+
+                                            <div id="Menu_Menu_Sub_2_third_layer_3" class="ThirdLayer">
+
+                                                <!-- 第三層 -->
+                                                <!-- List Content -->
+                                                <div class="List">
+                                                    <ul>
+                                                        <li><a href="https://tw.transcend-info.com/products/oem.aspx">
+                                                                <div class="IMG"><img
+                                                                        src="./src/customized_custom_intro.jpg"></div>
+                                                                服務說明
+                                                            </a></li>
+
+                                                        <li><a href="https://tw.transcend-info.com/support/oem_tool">
+                                                                <div class="IMG"><img
+                                                                        src="./src/customized_custom_preview.jpg"></div>
+                                                                產品預覽
+                                                            </a></li>
+                                                    </ul>
+                                                    <!-- Infomation Content -->
+
+                                                </div>
+
+                                                <div class="Infomation" style="display: ">
+
+                                                    <div class="IMG">
+
+                                                    </div>
+
+                                                    <h3>
+                                                    </h3>
+                                                    <div class="Descp">
+                                                        <div class="Mask"></div>
+
+                                                    </div>
+                                                    <div class="BTNs BTN-ReadMore"><a
+                                                            href="https://tw.transcend-info.com/">閱讀更多</a></div>
+                                                </div>
+
+
+                                            </div>
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/support/verification" id="Menu_16">
+                                                <div class="IMG"><img src="./src/support_verify.png"></div>保固期限查詢
+                                            </a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://rma.transcend-info.com/tw/enduser" target="_blank"
+                                                id="Menu_47">
+                                                <div class="IMG"><img src="./src/support_rma.png"></div>維修申請&amp;查詢
+                                            </a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/support/buy" id="Menu_20">
+                                                <div class="IMG"><img src="./src/support_wheretobuy.png"></div>何處購買
+                                            </a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/partnercenter/" target="_blank"
+                                                id="Menu_164">
+                                                <div class="IMG"><img src="./src/support_partnercenter.png"></div>合作夥伴專區
+                                            </a>
+
+
+                                        </li>
+
+                                    </ol>
+                                </div>
+                            </div>
+
+                        </li>
+
+                        <li class="OneList">
+                            <a href="https://tw.transcend-info.com/about/company" id="Menu_21">關於我們</a>
+
+                            <!-- 次選單 -->
+                            <!-- MainContent -->
+                            <div class="MainContent">
+                                <!-- Structure -->
+                                <div class="RWD-Structure">
+                                    <!-- 第二層 -->
+                                    <ol class="SecLayer">
+
+                                        <li class="Category active">
+                                            <a href="https://tw.transcend-info.com/about/company" id="Menu_22">公司簡介</a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/about/advantage"
+                                                id="Menu_152">創見優勢</a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/about/awards" id="Menu_51">得獎資訊</a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/about/board_of_directors"
+                                                id="Menu_28">公司治理專區</a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/about/month_sales"
+                                                id="Menu_23">投資者訊息</a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/about/stock" id="Menu_29">股東專區</a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/about/social_responsibility"
+                                                id="Menu_136">永續發展</a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/about/press" id="Menu_24">新聞</a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/about/green" id="Menu_25">綠能環保</a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://www.104.com.tw/company/arr95o8" target="_blank"
+                                                id="Menu_196">菁英招募</a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/about/store" id="Menu_45">創見直營門市</a>
+
+
+                                        </li>
+
+                                        <li class="Category">
+                                            <a href="https://tw.transcend-info.com/support/contact"
+                                                id="Menu_121">聯絡我們</a>
+
+
+                                        </li>
+
+                                    </ol>
+                                </div>
+                            </div>
+
+                        </li>
+
+                        <li class="">
+                            <a href="https://shop.transcend-info.com/" target="_blank" id="Menu_166">官方購物網</a>
+
+                        </li>
+
+
+                    </ul>
+
+                    <!-- Search & Mobile Nav - PullRightItem -->
+                    <div class="PullRightItem">
+                        <!-- Mobile Menu -->
+                        <div id="BTNs-MobileNav" class="BTNs-navLast" style="display: none; justify-content: center;">
+                            <div class="ICONs"></div>
+                        </div>
+                        <!-- Search -->
+                        <div id="BTNs-Search" class="BTNs-navLast">
+                            <div class="ICONs"></div>
+                        </div>
+                        <!-- Close -->
+                        <div id="BTNs-Close" class="BTNs-navLast" style="display: none;">
+                            <div class="ICONs"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div style="position:absolute;z-index: 3;top:10px;right:10px">
+                <span id="btnChatbot" class="btn btn-info" style="width:100px;height:50px;vertical-align:middle">
+                    <i class="fa fa-robot"></i>&nbsp;&nbsp;&nbsp;Q&A
+                </span>
+            </div>
+
+            <!-- 搜尋內容 -->
+            <div id="SearchContainer" style="display: none;">
+                <div class="RWD-Structure">
+                    <div class="Content animated fadeInUp">
+                        <h2>我們可以如何幫您?</h2>
+                        <div class="InputBOX">
+                            <input name="ctl00$search" type="text" id="search" class="searchInput"
+                                placeholder="請輸入關鍵字、產品名稱或產品型號。"
+                                onkeydown="if (event.keyCode==13){document.getElementById(&#39;BT_search&#39;).focus();return true;}"
+                                autocomplete="off">
+                            <input type="submit" name="ctl00$BT_search" value="" onclick="loadingAnimation();"
+                                id="BT_search" class="icon icon_search-sm">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <link rel="stylesheet" href="./src/FakeModal.css" type="text/css">
+
+
+
+        <!-- 輪播 -->
+        <div class="keyV slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button"
+                data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button"
+                style="display: block;">Previous</button>
+
+            <div aria-live="polite" class="slick-list draggable">
+                <div class="slick-track" style="opacity: 1; width: 12152px;" role="listbox">
+                    <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false"
+                        style="width: 1519px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;"
+                        tabindex="-1" role="option" aria-describedby="slick-slide00">
+                        <!-- 首頁廣告 -->
+                        <div class="RWD-Structure">
+                            <div class="keyV__content left">
+                                <!-- left / center / right 控制位置 -->
+                                <div class="keyV__title">
+                                    ESD310行動固態硬碟<span>
+                                        行動固態硬碟
+                                    </span>
+                                </div>
+                                <a href="https://tw.transcend-info.com/product/portable-ssd/esd310" tabindex="0">
+                                    <div class="btn btn__cta-white btn-XL">
+                                        探索
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <picture>
+                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/ESD310_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <!--[if IE 9]></video><![endif]-->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/ESD310_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/ESD310_1024x800.jpg"
+                                media="(min-width: 600px)">
+                            <!-- 中張圖 -->
+                            <img class="" srcset="https://tw.transcend-info.com/images/HomeBanner/ESD310_600x600.jpg">
+                            <!-- 小張圖 -->
+                        </picture>
+                    </div>
+                    <div class="slick-slide" data-slick-index="1" aria-hidden="true"
+                        style="width: 1519px; position: relative; left: -1519px; top: 0px; z-index: 998; opacity: 0;"
+                        tabindex="-1" role="option" aria-describedby="slick-slide01">
+                        <!-- 首頁廣告 -->
+                        <div class="RWD-Structure">
+                            <div class="keyV__content ">
+                                <!-- left / center / right 控制位置 -->
+                                <div class="keyV__title">
+                                    ESD300行動固態硬碟<span>
+                                        行動固態硬碟
+                                    </span>
+                                </div>
+                                <a href="https://tw.transcend-info.com/products/No-1308" tabindex="-1">
+                                    <div class="btn btn__cta-white btn-XL">
+                                        探索
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <picture>
+                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/esd300_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <!--[if IE 9]></video><![endif]-->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/esd300_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/esd300_1024x800.jpg"
+                                media="(min-width: 600px)">
+                            <!-- 中張圖 -->
+                            <img class="" srcset="https://tw.transcend-info.com/images/HomeBanner/esd300_600x600.jpg">
+                            <!-- 小張圖 -->
+                        </picture>
+                    </div>
+                    <div class="slick-slide" data-slick-index="2" aria-hidden="true"
+                        style="width: 1519px; position: relative; left: -3038px; top: 0px; z-index: 998; opacity: 0;"
+                        tabindex="-1" role="option" aria-describedby="slick-slide02">
+                        <!-- 首頁廣告 -->
+                        <div class="RWD-Structure">
+                            <div class="keyV__content left">
+                                <!-- left / center / right 控制位置 -->
+                                <div class="keyV__title">
+                                    PCIe SSD 250H<span>
+                                        內接式固態硬碟
+                                    </span>
+                                </div>
+                                <a href="https://tw.transcend-info.com/product/internal-ssd/mte250h" tabindex="-1">
+                                    <div class="btn btn__cta-white btn-XL">
+                                        探索
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <picture>
+                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/mte250h_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <!--[if IE 9]></video><![endif]-->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/mte250h_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/mte250h_1024x800.jpg"
+                                media="(min-width: 600px)">
+                            <!-- 中張圖 -->
+                            <img class="" srcset="https://tw.transcend-info.com/images/HomeBanner/mte250h_600x600.jpg">
+                            <!-- 小張圖 -->
+                        </picture>
+                    </div>
+                    <div class="slick-slide" data-slick-index="3" aria-hidden="true"
+                        style="width: 1519px; position: relative; left: -4557px; top: 0px; z-index: 998; opacity: 0;"
+                        tabindex="-1" role="option" aria-describedby="slick-slide03">
+                        <!-- 首頁廣告 -->
+                        <div class="RWD-Structure">
+                            <div class="keyV__content left">
+                                <!-- left / center / right 控制位置 -->
+                                <div class="keyV__title">
+                                    ESD380C行動固態硬碟<span>
+                                        行動固態硬碟
+                                    </span>
+                                </div>
+                                <a href="https://tw.transcend-info.com/product/portable-ssd/esd380c" tabindex="-1">
+                                    <div class="btn btn__cta-white btn-XL">
+                                        探索
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <picture>
+                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/esd380c_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <!--[if IE 9]></video><![endif]-->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/esd380c_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/esd380c_1024x800.jpg"
+                                media="(min-width: 600px)">
+                            <!-- 中張圖 -->
+                            <img class="" srcset="https://tw.transcend-info.com/images/HomeBanner/esd380c_600x600.jpg">
+                            <!-- 小張圖 -->
+                        </picture>
+                    </div>
+                    <div class="slick-slide" data-slick-index="4" aria-hidden="true"
+                        style="width: 1519px; position: relative; left: -6076px; top: 0px; z-index: 998; opacity: 0;"
+                        tabindex="-1" role="option" aria-describedby="slick-slide04">
+                        <!-- 首頁廣告 -->
+                        <div class="RWD-Structure">
+                            <div class="keyV__content left">
+                                <!-- left / center / right 控制位置 -->
+                                <div class="keyV__title">
+                                    MacBook Pro 2021~2023<br>專用擴充卡<span>
+                                        JetDrive Lite 330
+                                    </span>
+                                </div>
+                                <a href="https://tw.transcend-info.com/product/memory-card/jetdrive-lite-330"
+                                    tabindex="-1">
+                                    <div class="btn btn__cta-white btn-XL">
+                                        探索
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <picture>
+                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/JDL330_1920x800_1TB.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <!--[if IE 9]></video><![endif]-->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/JDL330_1920x800_1TB.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <source class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/JDL330_1024x800_1TB.jpg"
+                                media="(min-width: 600px)">
+                            <!-- 中張圖 -->
+                            <img class=""
+                                srcset="https://tw.transcend-info.com/images/HomeBanner/JDL330_600x600_1TB.jpg">
+                            <!-- 小張圖 -->
+                        </picture>
+                    </div>
+                    <div class="slick-slide" data-slick-index="5" aria-hidden="true"
+                        style="width: 1519px; position: relative; left: -7595px; top: 0px; z-index: 998; opacity: 0;"
+                        tabindex="-1" role="option" aria-describedby="slick-slide05">
+                        <!-- 首頁廣告 -->
+                        <div class="RWD-Structure">
+                            <div class="keyV__content left">
+                                <!-- left / center / right 控制位置 -->
+                                <div class="keyV__title">
+                                    建構高效運算世代<span>
+                                        工業級DDR5記憶體模組
+                                    </span>
+                                </div>
+                                <a href="https://tw.transcend-info.com/Embedded/products/mem_search.aspx?catno=432"
+                                    tabindex="-1">
+                                    <div class="btn btn__cta-white btn-XL">
+                                        探索
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <picture>
+                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                            <source class="" srcset="https://tw.transcend-info.com/images/HomeBanner/DDR5_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <!--[if IE 9]></video><![endif]-->
+                            <source class="" srcset="https://tw.transcend-info.com/images/HomeBanner/DDR5_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <source class="" srcset="https://tw.transcend-info.com/images/HomeBanner/DDR5_1024x800.jpg"
+                                media="(min-width: 600px)">
+                            <!-- 中張圖 -->
+                            <img class="" srcset="https://tw.transcend-info.com/images/HomeBanner/DDR5_600x600.jpg">
+                            <!-- 小張圖 -->
+                        </picture>
+                    </div>
+                    <div class="slick-slide" data-slick-index="6" aria-hidden="true"
+                        style="width: 1519px; position: relative; left: -9114px; top: 0px; z-index: 998; opacity: 0;"
+                        tabindex="-1" role="option" aria-describedby="slick-slide06">
+                        <!-- 首頁廣告 -->
+                        <div class="RWD-Structure">
+                            <div class="keyV__content left">
+                                <!-- left / center / right 控制位置 -->
+                                <div class="keyV__title">
+                                    引領極智未來<span>
+                                        112 層 3D NAND 工業級固態硬碟
+                                    </span>
+                                </div>
+                                <a href="https://tw.transcend-info.com/Article/BICS5" tabindex="-1">
+                                    <div class="btn btn__cta-white btn-XL">
+                                        探索
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <picture>
+                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                            <source class="" srcset="https://tw.transcend-info.com/images/HomeBanner/Bics5_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <!--[if IE 9]></video><![endif]-->
+                            <source class="" srcset="https://tw.transcend-info.com/images/HomeBanner/Bics5_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <source class="" srcset="https://tw.transcend-info.com/images/HomeBanner/Bics5-1024x800.jpg"
+                                media="(min-width: 600px)">
+                            <!-- 中張圖 -->
+                            <img class="" srcset="https://tw.transcend-info.com/images/HomeBanner/Bics5_600x600.jpg">
+                            <!-- 小張圖 -->
+                        </picture>
+                    </div>
+                    <div class="slick-slide" data-slick-index="7" aria-hidden="true"
+                        style="width: 1519px; position: relative; left: -10633px; top: 0px; z-index: 998; opacity: 0;"
+                        tabindex="-1" role="option" aria-describedby="slick-slide07">
+                        <!-- 首頁廣告 -->
+                        <div class="RWD-Structure">
+                            <div class="keyV__content left">
+                                <!-- left / center / right 控制位置 -->
+                                <div class="keyV__title">
+                                    DrivePro 620 雙鏡，雙倍的安全<span>
+                                        DrivePro™ 620雙鏡頭行車記錄器
+                                    </span>
+                                </div>
+                                <a href="https://tw.transcend-info.com/product/dashcam/drivepro-620" tabindex="-1">
+                                    <div class="btn btn__cta-white btn-XL">
+                                        探索
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <picture>
+                            <!--[if IE 9]><video style="display: none;"><![endif]-->
+                            <source class="" srcset="https://tw.transcend-info.com/images/HomeBanner/DP620_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <!--[if IE 9]></video><![endif]-->
+                            <source class="" srcset="https://tw.transcend-info.com/images/HomeBanner/DP620_1920x800.jpg"
+                                media="(min-width: 1024px)">
+                            <!-- 大張圖 -->
+                            <source class="" srcset="https://tw.transcend-info.com/images/HomeBanner/DP620_1024x800.jpg"
+                                media="(min-width: 600px)">
+                            <!-- 中張圖 -->
+                            <img class="" srcset="https://tw.transcend-info.com/images/HomeBanner/DP620_600x600.jpg">
+                            <!-- 小張圖 -->
+                        </picture>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button"
+                style="display: block;">Next</button>
+            <ul class="slick-dots" style="display: block;" role="tablist">
+                <li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true"
+                    aria-controls="navigation00" id="slick-slide00"><button type="button" data-role="none" role="button"
+                        tabindex="0">1</button></li>
+                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation01"
+                    id="slick-slide01"><button type="button" data-role="none" role="button" tabindex="0">2</button></li>
+                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation02"
+                    id="slick-slide02"><button type="button" data-role="none" role="button" tabindex="0">3</button></li>
+                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation03"
+                    id="slick-slide03"><button type="button" data-role="none" role="button" tabindex="0">4</button></li>
+                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation04"
+                    id="slick-slide04"><button type="button" data-role="none" role="button" tabindex="0">5</button></li>
+                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation05"
+                    id="slick-slide05"><button type="button" data-role="none" role="button" tabindex="0">6</button></li>
+                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation06"
+                    id="slick-slide06"><button type="button" data-role="none" role="button" tabindex="0">7</button></li>
+                <li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation07"
+                    id="slick-slide07"><button type="button" data-role="none" role="button" tabindex="0">8</button></li>
+            </ul>
+        </div>
+
+        <!-- Service -->
+        <div class="indexService">
+            <div class="row">
+                <a href="https://tw.transcend-info.com/Embedded">
+                    <div class="indexService__block es"><span id="EmbTitle">嵌入式解決方案 <i
+                                class="icon icon_more-index"></i></span></div>
+                </a>
+                <a href="https://tw.transcend-info.com/Consumer">
+                    <div class="indexService__block cp"><span id="ConTitle">消費性產品 <i
+                                class="icon icon_more-index"></i></span></div>
+                </a>
+                <a href="https://tw.transcend-info.com/support/service">
+                    <div class="indexService__block sup last"><span id="SupTitle">支援服務 <i
+                                class="icon icon_more-index"></i></span></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- News -->
+
+
+        <!-- Event & Article -->
+        <div class="New_Index_Article">
+            <!-- RWD-Structure -->
+            <div class="RWD-Structure">
+                <!-- MainContent -->
+                <div class="MainContent">
+
+
+
+                    <!-- Article_Item -->
+                    <div class="Article_Item ">
+
+                        <!-- InnerContent -->
+                        <div class="InnerContent">
+
+                            <!-- IMG -->
+                            <div class="indexArticle__block__img ">
+                                <a href="https://tw.transcend-info.com/Article/WFH" target="_blank"><img
+                                        src="./src/WFH_860x400.jpg" class="lazy"></a>
+                                <span class="hidden">technology</span>
+                            </div>
+                            <!-- IMG END -->
+
+                            <!-- Content -->
+                            <div class="Descp">
+                                <div class="Title">
+                                    居家辦公錦囊妙計
+                                </div>
+                                <div class="Text">
+                                    居家辦公不孤單，創見陪伴你一起度過在家工作的點點滴滴。
+                                    <div class="Mask"></div>
+                                </div>
+                                <div class="More">
+                                    <a href="https://tw.transcend-info.com/Article/WFH" target="_blank">
+                                        閱讀更多 <i class="icon icon_more-article"></i></a>
+                                </div>
+                            </div>
+                            <!-- Content END -->
+
+                        </div>
+                        <!-- InnerContent END -->
+
+                    </div>
+                    <!-- Article_Item END -->
+
+
+
+                    <!-- Article_Item -->
+                    <div class="Article_Item ">
+
+                        <!-- InnerContent -->
+                        <div class="InnerContent">
+
+                            <!-- IMG -->
+                            <div class="indexArticle__block__img ">
+                                <a href="https://tw.transcend-info.com/Article/gamingconsole" target="_blank"><img
+                                        src="./src/Gaming_Column_BANNER_1280X800.jpg" class="lazy"></a>
+                                <span class="hidden">technology</span>
+                            </div>
+                            <!-- IMG END -->
+
+                            <!-- Content -->
+                            <div class="Descp">
+                                <div class="Title">
+                                    有感升級，暢玩傳奇經典
+                                </div>
+                                <div class="Text">
+                                    快被遲緩的下載進度條逼瘋了嗎？厭倦了遊戲機上反覆出現的「空間不足」通知？沒關係，只要擴充儲存空間，讓這些煩惱通通消失！
+                                    <div class="Mask"></div>
+                                </div>
+                                <div class="More">
+                                    <a href="https://tw.transcend-info.com/Article/gamingconsole" target="_blank">
+                                        閱讀更多 <i class="icon icon_more-article"></i></a>
+                                </div>
+                            </div>
+                            <!-- Content END -->
+
+                        </div>
+                        <!-- InnerContent END -->
+
+                    </div>
+                    <!-- Article_Item END -->
+
+
+
+                    <!-- Article_Item -->
+                    <div class="Article_Item ">
+
+                        <!-- InnerContent -->
+                        <div class="InnerContent">
+
+                            <!-- IMG -->
+                            <div class="indexArticle__block__img ">
+                                <a href="https://tw.transcend-info.com/Article/newESD_2020" target="_blank"><img
+                                        src="./src/ESD_860x400.jpg" class="lazy"></a>
+                                <span class="hidden">technology</span>
+                            </div>
+                            <!-- IMG END -->
+
+                            <!-- Content -->
+                            <div class="Descp">
+                                <div class="Title">
+                                    帶著走的固態硬碟！教人怎不愛？
+                                </div>
+                                <div class="Text">
+                                    帶著走的固態硬碟！教人怎不愛？
+                                    <div class="Mask"></div>
+                                </div>
+                                <div class="More">
+                                    <a href="https://tw.transcend-info.com/Article/newESD_2020" target="_blank">
+                                        閱讀更多 <i class="icon icon_more-article"></i></a>
+                                </div>
+                            </div>
+                            <!-- Content END -->
+
+                        </div>
+                        <!-- InnerContent END -->
+
+                    </div>
+                    <!-- Article_Item END -->
+
+
+
+                    <!-- Article_Item -->
+                    <div class="Article_Item ">
+
+                        <!-- InnerContent -->
+                        <div class="InnerContent">
+
+                            <!-- IMG -->
+                            <div class="indexArticle__block__img ">
+                                <a href="https://tw.transcend-info.com/Article/MemoryCard" target="_blank"><img
+                                        src="./src/MemoryCardBanner_860x400.jpg" class="lazy"></a>
+                                <span class="hidden">technology</span>
+                            </div>
+                            <!-- IMG END -->
+
+                            <!-- Content -->
+                            <div class="Descp">
+                                <div class="Title">
+                                    挑選合適的記憶卡
+                                </div>
+                                <div class="Text">
+                                    面對多樣化的記憶卡規格、不同的傳輸速度、以及裝置支援的標準，本篇文章帶著你挑選合適的創見記憶卡。
+                                    <div class="Mask"></div>
+                                </div>
+                                <div class="More">
+                                    <a href="https://tw.transcend-info.com/Article/MemoryCard" target="_blank">
+                                        閱讀更多 <i class="icon icon_more-article"></i></a>
+                                </div>
+                            </div>
+                            <!-- Content END -->
+
+                        </div>
+                        <!-- InnerContent END -->
+
+                    </div>
+                    <!-- Article_Item END -->
+
+
+
+                </div>
+                <!-- MainContent END -->
+            </div>
+            <!-- RWD-Structure END -->
+        </div>
+
+
+        <!-- 2022/09/27 新增仿冒品聲明 -->
+        <div id="FakeModal" class="FakeModal" onclick="closeFakeModal();">
+            <div class="FakeModal_Win">
+                <div class="FakeModal_Win_Close" onclick="closeFakeModal();">
+                    x
+                </div>
+                <div class="FakeModal_Win_Content">
+                    <div id="FakeModalTitle">
+                        <div>仿冒品提醒聲明</div>
+                    </div>
+                    <div id="FakeModalBody">
+                        <span>親愛的顧客您好:<br>
+                            近期本公司接獲多起消費者反映，有不明業者在拍賣網站或網路商店意圖誘使消費者購買內容不實的問題產品或仿冒品。網路商店中價格過低、或來路不明的產品，都極可能為仿冒品。不僅品質低劣，更可能導致資料遺失。為保障消費者權益，購買前應審慎斟酌廣告內容並留意產品真偽，倘若對產品銷售網頁有任何疑慮，請<a
+                                href="https://tw.transcend-info.com/support/contact" target="_blank"
+                                style="color:#428bca">聯繫創見</a>進行確認；也歡迎至以下本公司通路直接購買具有官方保固服務的創見產品。
+                        </span>
+                        <div style="text-align:center;">
+                            <a href="https://shop.transcend-info.com/" target="_blank"><input type="button"
+                                    class="button" value="創見官方購物網"></a>
+                            <a href="https://tw.transcend-info.com/about/store" target="_blank"><input type="button"
+                                    class="button" value="創見直營門市"></a>
+                            <a href="https://tw.transcend-info.com/support/buy" target="_blank"><input type="button"
+                                    class="button" value="創見正規授權通路"></a>
+                        </div>
+                        <span style="float:right;text-align:right">創見資訊股份有限公司　敬啟<br>2022/9/26</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 2022/09/27 新增仿冒品聲明 -->
+
+        <div id="dialogChatbot" title="" style="display:none;height:100%;overflow:hidden">
+            <form id="formChatbot" method="dialog" style="height:100%;overflow:hidden">
+                <iframe
+                    src="https://web.powerva.microsoft.com/environments/Default-27bfa29c-c614-477b-a83a-d80c120c492a/bots/Default_transcend/webchat?__version__=2"
+                    frameborder="0" style="width: 100%; height: 100%;"></iframe>
+            </form>
+        </div>
+
+
+        <!-- Footer -->
+        <footer id="Footer">
+            <div class="DirectMAP">
+                <div class="RWD-Structure">
+
+                    <div class="BOX" style="display: ">
+
+                        <h5>消費性產品</h5>
+                        <ul>
+
+                            <li><a href="https://tw.transcend-info.com/product/internal-ssd">內接式固態硬碟</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/product/portable-ssd">行動固態硬碟</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/product/external-hard-drive">外接式硬碟</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/product/personal-cloud">個人雲端儲存裝置</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/product/dashcam">行車記錄器</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/product/body-camera">穿戴式攝影機</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/product/memory-card">記憶卡</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/product/usb">隨身碟</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/product/dram-module">記憶體模組</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/product/card-reader-accessory">讀卡機、DVD燒錄機與配件</a>
+                            </li>
+
+                            <li><a href="https://tw.transcend-info.com/apple">蘋果升級方案</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/products/oem.aspx">客製化服務</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="BOX" style="display: ">
+
+                        <h5>嵌入式解決方案</h5>
+                        <ul>
+
+                            <li><a href="https://tw.transcend-info.com/Embedded/Product/ssd">工業用SSD解決方案</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/Embedded/Product/flash">工業用Flash解決方案</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/Embedded/Product/memory-cards">工業用記憶卡</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/Embedded/Product/modules">工業用記憶體模組</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/Embedded/Technologies">產品技術</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/Embedded/Applications">應用領域</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/Embedded/Software">軟體解決方案</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/embedded/download">資源下載</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="BOX" style="display: ">
+
+                        <h5>支援服務</h5>
+                        <ul>
+
+                            <li><a href="https://tw.transcend-info.com/support/service">產品支援</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/support/software">軟體下載</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/support/compatibility">相容性查詢</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/warranty">保固政策</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/support/verification">保固期限查詢</a></li>
+
+                            <li><a href="https://rma.transcend-info.com/tw/enduser" target="_blank">維修申請&amp;查詢</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/support/buy">何處購買</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/partnercenter/" target="_blank">合作夥伴專區</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="BOX" style="display: ">
+
+                        <h5>關於我們</h5>
+                        <ul>
+
+                            <li><a href="https://tw.transcend-info.com/about/company">公司簡介</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/about/advantage">創見優勢</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/about/awards">得獎資訊</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/about/board_of_directors">公司治理專區</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/about/month_sales">投資者訊息</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/about/stock">股東專區</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/about/social_responsibility">永續發展</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/about/press">新聞</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/about/green">綠能環保</a></li>
+
+                            <li><a href="https://www.104.com.tw/company/arr95o8" target="_blank">菁英招募</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/about/store">創見直營門市</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/support/contact">聯絡我們</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="BOX" style="display: none">
+
+                        <h5>官方購物網</h5>
+                        <ul>
+
+                        </ul>
+                    </div>
+
+                    <div class="BOX SocialMedia">
+                        <h5>關注我們</h5>
+                        <ul>
+
+                            <li><a href="http://www.facebook.com/TranscendTW" target="_blank">
+                                    <img src="./src/snssquare.png"></a></li>
+
+                            <li><a href="http://www.youtube.com/transcendchannel" target="_blank">
+                                    <img src="./src/sns_youtube.png"></a></li>
+
+                            <li><a href="https://www.instagram.com/transcend_taiwan/" target="_blank">
+                                    <img src="./src/sns_instgram.jpg"></a></li>
+
+                            <li><a href="https://shop.transcend-info.com/" target="_blank">
+                                    <img src="./src/sns_shoppingcart02.jpg"></a></li>
+
+                        </ul>
+
+                        <img id="registedLogo" src="./src/logo_tw_w.svg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="Copyright-Info">
+                <div class="RWD-Structure">
+                    <div class="mainContent">
+
+                        <p>免費客服電話(週一至週五 9:00～18:00) <a href="tel:0800-041-000">0800-041-000</a></p>
+
+
+
+                        <!-- Copyright -->
+                        <ul class="notSingle">
+                            <li>Copyright© 2023 Transcend Information, Inc. All Rights Reserved.</li>
+
+                            <li><a href="https://tw.transcend-info.com/support/contact">聯絡我們</a></li>
+
+                            <li><a href="https://tw.transcend-info.com/legal/">法律</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="LanguageSelect">
+                        <a href="http://www.transcend-info.com/Global.aspx">
+                            <img src="./src/NationalFlag_TW.jpg"><span>Taiwan
+                                |
+                                繁體中文</span></a>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- GO TOP -->
+            <div id="NewGoTop"></div>
+
+
+        </footer>
+
+        <!-- Foot選單 -->
+
+        <!-- 同意cookies的設置 AgreeCookieSet -->
+        <div class="cookiesetting_container" id="AgreeCookieSet" style="display: block;">
+            <div class="RWD-Structure">
+                <div class="icon">
+                    <i
+                        style="display:inline-block;width:20px;height:20px;background-image:url(https://tw.transcend-info.com/dist/images/ICON/check-minus-circle-solid.png);background-repeat:no-repeat;background-size:20px 40px;background-position:0 0"></i>
+                </div>
+                <p>
+                    您已經同意cookies的設置，但可以隨時撤回您的同意。若您想進一步了解本網站所使用的cookies，請參閱<a
+                        href="https://tw.transcend-info.com/legal/cookies-statement">Cookies聲明</a>。 <span
+                        class="clear"></span><a class="BTN-ChangSet"
+                        onclick="cookie_Defult();event.preventDefault()">修改設定</a>
+                </p>
+            </div>
+        </div>
+        <!-- 不同意cookies的設置 DisagreeCookieSet -->
+        <div class="cookiesetting_container" id="DisagreeCookieSet">
+            <div class="RWD-Structure">
+                <div class="icon">
+                    <i
+                        style="display:inline-block;width:20px;height:20px;background-image:url(https://tw.transcend-info.com/dist/images/ICON/check-minus-circle-solid.png);background-repeat:no-repeat;background-size:20px 40px;background-position:0 -20px"></i>
+                </div>
+                <p>
+                    您已經拒絕cookies的設置，但可以隨時再表示同意。若您想進一步了解本網站所使用的cookies，請參閱<a
+                        href="https://tw.transcend-info.com/legal/cookies-statement">Cookies聲明</a>。 <span
+                        class="clear"></span><a class="BTN-ChangSet"
+                        onclick="cookie_Defult();event.preventDefault()">修改設定</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="warning_container" id="legal_notice" style="">
+            <div class="RWD-Structure">
+                <p>為提升服務品質，本網站使用cookies記錄您的資訊。您可以同意或拒絕cookies的設置。若您拒絕cookies，部分網站功能可能無法運作。若您想進一步了解本網站所使用的cookies，請參閱<a
+                        href="https://tw.transcend-info.com/legal/cookies-statement">Cookies聲明</a>。</p>
+                <p>
+                    <a onclick="cookie_Agree();event.preventDefault()" class="cookie_button">同意</a>
+                    <a onclick="cookie_Disagree();event.preventDefault()" style="cursor:pointer">拒絕</a>
+                </p>
+            </div>
+        </div>
+
+        <div id="loadingModal" class="modal">
+            <img id="loadingImg" src="./src/loading.gif" hidden="">
+            <img id="img" class="modal_content_image">
+            <div id="loadingText" class="modal_content_text"></div>
+        </div>
+
+        <style>
+            #AutoCompleteExtender1_completionListElem {
+                border: 0 !important;
+            }
+
+            #AutoCompleteExtender1_completionListElem li {
+                border-left: 1px solid grey;
+                border-right: 1px solid grey;
+            }
+
+            #AutoCompleteExtender1_completionListElem li:first-child {
+                border-top: 1px solid grey
+            }
+
+            body {
+                font-family: 'Open Sans', sans-serif, '微軟正黑體', 'Meiryo' !important;
+            }
+
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 2000;
+                padding-top: 200px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .modal_content_image {
+                margin: auto;
+                display: block;
+                width: 100px;
+                height: 100px;
+                background-color: rgba(0, 0, 0, 0);
+            }
+
+            .modal_content_text {
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding-top: 20px;
+            }
+
+            .warning_container p {
+                width: 100% !important;
+            }
+
+            @media screen and (max-width:768px) {
+
+                footer div.Copyright-Info div.mainContent a,
+                footer div.Copyright-Info div.mainContent p,
+                footer div.Copyright-Info div.mainContent .notSingle {
+                    font-size: 14px !important;
+                    text-align: center;
                 }
-            }]
-        });
-        $(".ui-dialog-titlebar").hide();
 
-        $('#btnChatbot').click(function () {
-            $('#dialogChatbot').dialog('open');
-            return false;
-        });
-    })
-	</script>
+                footer div.Copyright-Info ul.notSingle {
+                    padding: 0 !important;
+                }
+
+                footer div.Copyright-Info div.mainContent ul>li {
+                    font-size: 12px !important;
+                    text-align: center;
+                }
+            }
+
+            @media screen and (min-width:768px) {
+
+                footer div.Copyright-Info div.mainContent a,
+                footer div.Copyright-Info div.mainContent p,
+                footer div.Copyright-Info div.mainContent ul>li {
+                    font-size: 16px !important;
+                }
+            }
+
+            @media screen and (max-width:1024px) {
+                footer div.Copyright-Info div.LanguageSelect {
+                    margin: 0;
+                }
+            }
+
+            @media screen and (max-width:500px) {
+                footer div.Copyright-Info div.mainContent .notSingle {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                footer div.Copyright-Info div.mainContent .notSingle li {
+                    flex-grow: 1;
+                }
+
+                footer div.Copyright-Info div.mainContent .notSingle li:first-child {
+                    width: 100%;
+                }
+
+                .warning_container .cookie_button {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .warning_container p:nth-child(2) {
+                    text-align: center;
+                }
+
+                .warning_container p:nth-child(2) a:nth-child(2) {
+                    font-size: 12px;
+                }
+
+            }
+        </style>
+        <!-- JS -->
+        <script src="./src/functions.min.js"></script>
+        <script src="./src/bootstrap.min.js"></script>
+        <script src="./src/slick.min.js" type="text/javascript"></script>
+        <script src="./src/Support.min.js"></script>
+
+        <script language="javascript" type="text/javascript">
+            function loadingAnimation() {
+                var modal = document.getElementById('loadingModal');
+                var img = document.getElementById('loadingImg');
+                var modalImg = document.getElementById("img");
+                var loadingText = document.getElementById("loadingText");
+                modal.style.display = "block";
+                modalImg.src = img.src;
+                modalImg.width = img.width;
+                modalImg.height = img.height;
+                loadingText.innerHTML = "Loading...";
+            }
+            function ReviseURL(OldDomain, NewDomain) {
+                document.location.href = location.href.replace(OldDomain, NewDomain);
+            }
+        </script>
+
+        <script>
+            $(document).ready(function () {
+
+                $("#dialogChatbot").dialog({
+                    modal: true,
+                    autoOpen: false,
+                    width: 600,
+                    height: 640,
+                    show: {
+                        effect: "fold",
+                        duration: 700
+                    },
+                    hide: {
+                        effect: "fade",
+                        duration: 500
+                    },
+                    buttons: [{
+                        text: "Close", click: function () {
+                            $("#dialogChatbot").dialog("close");
+                            /*$("#dialogChatbot").dialog("destroy");*/
+                        }
+                    }]
+                });
+                $(".ui-dialog-titlebar").hide();
+
+                $('#btnChatbot').click(function () {
+                    $('#dialogChatbot').dialog('open');
+                    return false;
+                });
+
+                $('#ConTitle').html($('#Menu_1').text() + ' <i class="icon icon_more-index"></i>');
+                $('#EmbTitle').html($('#Menu_55').text() + ' <i class="icon icon_more-index"></i>');
+                $('#SupTitle').html($('#Menu_14').text() + ' <i class="icon icon_more-index"></i>');
+                $('.keyV').slick({
+                    autoplay: true,
+                    centerMode: true,
+                    dots: true,
+                    infinite: true,
+                    speed: 800,
+                    fade: true,
+                    cssEase: 'linear'
+                });
+                document.createElement("picture");
+                if (!$('html').hasClass('ie9')) {
+                    var reveal = {
+                        delay: 100,
+                        easing: 'linear',
+                        opacity: 0.9,
+                        origin: 'bottom',
+                        scale: 0.8
+                    };
+                    window.sr = ScrollReveal();
+                    sr.reveal('.indexArticle__block');
+                };
+            })
+
+            function closeFakeModal() {
+                $('#FakeModal').hide();
+            }
+            $('.FakeModal_Win_Content').click(function (event) {
+                event.stopPropagation();
+            });
+        </script>
+
+        <input type="hidden" value="1" id="hiddenInputToUpdateATBuffer_CommonToolkitScripts"
+            name="hiddenInputToUpdateATBuffer_CommonToolkitScripts">
+        <ul id="AutoCompleteExtender1_completionListElem"
+            style="text-align: left; visibility: hidden; cursor: default; list-style: none; padding: 0px; border: 1px solid gray; background-color: white; color: black; position: absolute;">
+        </ul>
+    </form>
 </body>
-
 
 </html>

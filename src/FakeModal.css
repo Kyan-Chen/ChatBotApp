@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+.FakeModal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.FakeModal_Win {
+    position: relative;
+    background: #fff;
+    width: 100%;
+    max-width: 760px;
+    height: 500px;
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 10px;
+    top: 15%;
+}
+
+.FakeModal_Win_Close {
+    position: absolute;
+    top: -37px;
+    right: -37px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: #e4e4e4;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px rgb(0 0 0 / 40%);
+    cursor: pointer;
+}
+
+.FakeModal_Win_Content {
+    margin: 10px;
+    width: 740px;
+    height: 480px;
+}
+
+    .FakeModal_Win_Content #FakeModalTitle {
+        height: 30%;
+        background: #cccccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+#FakeModalTitle div {
+    color: #960014;
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.FakeModal_Win_Content #FakeModalBody {
+    margin: 20px;
+}
+
+#FakeModalBody span {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: normal;
+}
+
+#FakeModalBody .button {
+    background-color: #428bca;
+    color: #fff;
+    margin: 20px;
+    width: 160px;
+    font-size: 18px;
+    padding: 5px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+}
+
+@media screen and (max-width:767px) {
+    .FakeModal_Win {
+        max-width: 300px;
+    }
+
+    .FakeModal_Win_Close {
+        top: -44px;
+        right: 0px;
+    }
+
+    .FakeModal_Win_Content {
+        width: auto;
+        height: auto;
+    }
+
+        .FakeModal_Win_Content #FakeModalTitle {
+            height: 10%;
+        }
+
+    #FakeModalTitle div {
+        font-size: 28px;
+    }
+
+    .FakeModal_Win_Content #FakeModalBody {
+        margin: 10px;
+        display: grid;
+    }
+
+    #FakeModalBody span {
+        font-size: 14px;
+    }
+
+    #FakeModalBody .button {
+        margin: 8px;
+        width: 200px;
+        font-size: 14px;
+    }
+}
